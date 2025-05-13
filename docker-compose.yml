@@ -1,0 +1,39 @@
+name: ${NAME}
+services:
+
+  main:
+    build:
+      context: .
+      args:
+        PYTHON_VERSION: ${PYTHON_VERSION}
+        PYTHON_VERSION_MAJOR: ${PYTHON_VERSION_MAJOR}
+        PYTHON_VERSION_MINOR: ${PYTHON_VERSION_MINOR}
+        PYTHON_VERSION_PATCH: ${PYTHON_VERSION_PATCH}
+      dockerfile: Dockerfile
+    image: ai4os-cvat-backups:${VERSION:-latest}
+    container_name: ${DOCKER_NAMESPACE}main
+    environment:
+      LOG_LEVEL: ${LOG_LEVEL}
+      CVAT_URL: ${CVAT_URL}
+      CVAT_USERNAME: ${CVAT_USERNAME}
+      CVAT_PASSWORD: ${CVAT_PASSWORD}
+      CVAT_BACKUP_DIR: ${CVAT_BACKUP_DIR}
+      CVAT_BACKUP_TTL_HOURS: ${CVAT_BACKUP_TTL_HOURS}
+      CVAT_MIN_NUM_BACKUPS: ${CVAT_MIN_NUM_BACKUPS}
+      CVAT_BACKUP_SAVE_IMAGES: ${CVAT_BACKUP_SAVE_IMAGES}
+      CVAT_BACKUP_REQUEST_TIMEOUT_HOURS: ${CVAT_BACKUP_REQUEST_TIMEOUT_HOURS}
+    ulimits:
+      memlock: -1
+      stack: 67108864
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - backup_dir:${CVAT_BACKUP_DIR}
+    restart: always
+
+volumes:
+  backup_dir:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ./backups
