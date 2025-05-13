@@ -42,4 +42,6 @@ jobs:
           file: Dockerfile
           build-args: |
             PYTHON_VERSION=${{ env.PYTHON_VERSION }}
-
+            PYTHON_VERSION_MAJOR=${{ env.PYTHON_VERSION_MAJOR }}
+            PYTHON_VERSION_MINOR=${{ env.PYTHON_VERSION_MINOR }}
+            PYTHON_VERSION_PATCH=${{ env.PYTHON_VERSION_PATCH }}
