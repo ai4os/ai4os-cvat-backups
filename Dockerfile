@@ -18,6 +18,7 @@ WORKDIR /app
 COPY backup.py /app/backup.py
 COPY backup.sh /app/backup.sh
 COPY sweeper.py /app/sweeper.py
+COPY sweeper.sh /app/sweeper.sh
 COPY requirements.txt /app/requirements.txt
 COPY crontab /etc/cron.d/cvat-backups
 COPY entrypoint.sh /entrypoint.sh
