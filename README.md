@@ -1,5 +1,7 @@
 # ai4os-cvat-backups
 
+[![Build image](https://github.com/ai4os/ai4os-cvat-backups/actions/workflows/ai4os-docker.yml/badge.svg)](https://github.com/ai4os/ai4os-cvat-backups/actions/workflows/ai4os-docker.yml)
+
 Implementation for automated backup creation of CVAT projects and annotations using CVAT API.
 
 ## components
