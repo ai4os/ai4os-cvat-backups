@@ -1,3 +1,7 @@
+# ai4os-cvat-backups
+
+Implementation for automated backup creation of CVAT projects and annotations using CVAT API.
+
 ## components
 
 ### backup.py
