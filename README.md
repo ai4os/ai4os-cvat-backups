@@ -39,6 +39,9 @@ Additional configuration is set by ENV variables:
 | `CVAT_BACKUP_TTL` | minimum age of backup file in hours; if the age of the backup file exceeds this value and there are more than `${CVAT_MIN_NUM_BACKUPS}` backup files, this backup is deleted by the sweeper |
 | `CVAT_MIN_NUM_BACKUPS` | minimum number of backup files to keep regardless of their age (`${CVAT_BACKUP_TTL}`) |
 
+## backup settings
+The frequency of the backups can be adjusted in the [crontab](crontab) file.
+
 ## running locally
 
 ### backup.py wrapper
